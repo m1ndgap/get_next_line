@@ -6,13 +6,38 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:08:58 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/02 18:10:40 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:24:23 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-char *get_next_line(int fd);
+# include <fcntl.h>
+# include <stddef.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+typedef struct s_read_to_nl_vars
+{
+	int		i;
+	int		buf_len_nl;
+	ssize_t	bytesread;
+}			t_read_to_nl_vars;
+
+void		*ft_calloc(size_t nmemb, size_t size);
+
+char		*append_line(char *s1, char const *buf);
+char		*ft_strchr(const char *s, int c);
+char		*get_next_line(int fd);
+char		*read_until_nl(int fd, char *buf, char *line);
+
+size_t		ft_strlen_nl(const char *s);
 
 #endif
