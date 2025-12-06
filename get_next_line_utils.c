@@ -6,7 +6,7 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:08:53 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/06 13:28:38 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/06 15:00:03 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ char	*append_line(char *old, char const *buf)
 char *read_until_nl(int fd, char *buf, char *line)
 {
     t_read_to_nl_vars vars;
-
-    // Loop while no newline is found in buf
+	
     while (!ft_strchr(buf, '\n'))
     {
         line = append_line(line, buf);
@@ -123,7 +122,6 @@ char *read_until_nl(int fd, char *buf, char *line)
         buf[vars.bytesread] = '\0';
     }
 
-    // Newline was found: append and shift the buffer
     line = append_line(line, buf);
     if (!line)
         return (NULL);
@@ -145,7 +143,6 @@ char *read_until_nl(int fd, char *buf, char *line)
 {
     t_read_to_nl_vars vars;
 
-    // Loop while no newline is found in buf
     while (!ft_strchr(buf, '\n'))
     {
         line = append_line(line, buf);
@@ -163,7 +160,6 @@ char *read_until_nl(int fd, char *buf, char *line)
         buf[vars.bytesread] = '\0';
     }
 
-    // Newline was found: append and shift the buffer
     line = append_line(line, buf);
     if (!line)
         return (NULL);
