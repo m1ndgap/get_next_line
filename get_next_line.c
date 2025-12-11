@@ -6,7 +6,7 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:08:29 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/06 15:06:37 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/09 11:43:34 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*get_next_line(int fd)
 		}
 		buf[bytesread] = '\0';
 	}
-	line = read_until_nl(fd, buf, line);
+	line = read_until_nl(fd, buf, line, 0);
 	if (!line)
 		return (NULL);
 	return (line);

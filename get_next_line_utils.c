@@ -6,7 +6,7 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:08:53 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/06 15:10:46 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/09 11:43:17 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,36 +101,31 @@ char	*append_line(char *old, char const *buf)
 	return (new);
 }
 
-char *read_until_nl(int fd, char *buf, char *line)
+char	*read_until_nl(int fd, char *buf, char *line, int iv)
 {
-    t_read_to_nl_vars vars;
-	
-    while (!ft_strchr(buf, '\n'))
-    {
-        line = append_line(line, buf);
-        if (!line)
-            return (NULL);
+	t_read_to_nl_vars	vars;
 
-        vars.bytesread = read(fd, buf, BUFFER_SIZE);
-        if (vars.bytesread <= 0)
-        {
-            buf[0] = '\0';
-            if (vars.bytesread < 0)
-                return (NULL);
-            return (line);
-        }
-        buf[vars.bytesread] = '\0';
-    }
-
-    line = append_line(line, buf);
-    if (!line)
-        return (NULL);
-
-    vars.i = 0;
-    vars.buf_len_nl = ft_strlen_nl(buf) + 1;
-    while (buf[vars.buf_len_nl] && vars.buf_len_nl < BUFFER_SIZE)
-        buf[vars.i++] = buf[vars.buf_len_nl++];
-    buf[vars.i] = '\0';
-
-    return (line);
+	while (!ft_strchr(buf, '\n'))
+	{
+		line = append_line(line, buf);
+		if (!line)
+			return (NULL);
+		vars.bytesread = read(fd, buf, BUFFER_SIZE);
+		if (vars.bytesread <= 0)
+		{
+			buf[0] = '\0';
+			if (vars.bytesread < 0)
+				return (NULL);
+			return (line);
+		}
+		buf[vars.bytesread] = '\0';
+	}
+	line = append_line(line, buf);
+	if (!line)
+		return (NULL);
+	vars.buf_len_nl = ft_strlen_nl(buf) + 1;
+	while (buf[vars.buf_len_nl] && vars.buf_len_nl < BUFFER_SIZE)
+		buf[iv++] = buf[vars.buf_len_nl++];
+	buf[iv] = '\0';
+	return (line);
 }
