@@ -6,7 +6,7 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:21:34 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/08 18:16:48 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/11 23:28:12 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	ssize_t		bytesread;
 
-	if (BUFFER_SIZE <= 0 || fd < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > FOPEN_MAX)
 		return (NULL);
 	line = NULL;
 	if (!buf[fd][0])

@@ -6,7 +6,7 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:08:58 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/09 11:43:50 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/11 22:56:37 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
+#  define BUFFER_SIZE 10000
 # endif
 
 typedef struct s_read_to_nl_vars
