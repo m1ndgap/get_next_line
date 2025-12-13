@@ -30,4 +30,4 @@ https://www.geeksforgeeks.org/c/static-variables-in-c/
 
 https://en.wikipedia.org/wiki/Static_variable
 
-AI was used to clarify difference between `FOPEN_MAX` and `OPEN_MAX`. Confirming correct `fd > FOPEN_MAX` protection for the bonus tasks. Understanding how to refactor logic for the `read_until_nl` utility function to avoid `while (1)` condition.
+AI was used to clarify difference between `FOPEN_MAX` and `OPEN_MAX`. Confirming correct `fd > FOPEN_MAX` protection for the bonus tasks.
